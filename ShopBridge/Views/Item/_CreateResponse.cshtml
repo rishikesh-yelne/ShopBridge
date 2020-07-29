@@ -1,0 +1,50 @@
+﻿
+@model  ShopBridge.Models.itemTbl
+
+<tr data-id="@Model.itemID">
+    <td hidden="hidden">
+        @Html.ActionLink(Html.DisplayFor(modelItem => Model.itemID).ToString(),
+               "Details", new { id = Model.itemID })
+    </td>
+    <td onclick="location.href = '@(Url.Action("Details", "Item", new { id = Model.itemID }))'">
+        @Html.DisplayFor(modelItem => Model.itemName)
+    </td>
+    <td onclick="location.href = '@(Url.Action("Details", "Item", new { id = Model.itemID }))'">
+        @Html.DisplayFor(modelItem => Model.itemDescription)
+    </td>
+    <td onclick="location.href = '@(Url.Action("Details", "Item", new { id = Model.itemID }))'">
+        @Html.DisplayFor(modelItem => Model.itemPrice)
+    </td>
+    <td onclick="location.href = '@(Url.Action("Details", "Item", new { id = Model.itemID }))'">
+        @{
+            string base64string = Convert.ToBase64String(Model.itemImage);
+        }
+        <img style="width:150px;height:150px" src="@String.Format("data:image/png;base64,{0}", base64string)" />
+        @*@Html.DisplayFor(modelItem => item.itemImage)*@
+    </td>
+    <td>
+        @using (Ajax.BeginForm("DeleteItem", new { id = Model.itemID },
+                            new AjaxOptions
+                            {
+                                HttpMethod = "Post",
+                                UpdateTargetId = "view",
+                                InsertionMode = InsertionMode.Replace,
+                                OnSuccess = "afterDeleteSuccess()",
+                                OnFailure = "afterFailure()",
+                                OnBegin = "loading(this)",
+                                OnComplete = "loadingStop(this)"
+                            }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <button type="submit" value="Create" class="btn btn-default"
+                        onclick="return confirm('Are you sure you want to delete @Model.itemName ?');">
+                    <i class="fa"></i> Delete
+                </button>
+                @*<input type="submit" value="Delete" class="btn btn-default"
+                    onclick="return confirm('Are you sure you want to delete @Model.itemName ?');" />*@
+            </div>
+        }
+    </td>
+</tr>

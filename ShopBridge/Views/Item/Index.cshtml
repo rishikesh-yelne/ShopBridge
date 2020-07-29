@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ShopBridge.Models.itemTbl>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<script type="text/javascript">
+    function afterSuccess(data) {
+        //check if any validations have failed
+        if (data.indexOf('field-validation-error') > -1) {
+            afterFailure();
+            return;
+        }
+        //else Success
+        swal("Success!", "The Item was added to the inventory!", "success");
+        reloadGrid();
+    }
+
+    function afterDeleteSuccess() {
+        swal("Success!", "The Item was deleted from the inventory!", "success");
+        reloadGrid();
+    }
+
+    function afterFailure() {
+        swal("Error!", "Something went wrong!", "error");
+    }
+
+    function reloadGrid()
+    {
+        $.ajax({
+            type: "GET",
+            url: "/ShopBridge/Item/ViewItems",
+            success: reloadGridSuccessFunc,
+            error: reloadGridErrorFunc
+        });
+
+        function reloadGridSuccessFunc(data, status) {
+            $("#view").html(data);
+        }
+
+        function reloadGridErrorFunc() {
+            alert('error');
+        }
+    }
+
+    function loading(tagControl)
+    {
+        tagControl.getElementsByTagName('i')[0].classList.add('fa-spinner');
+        tagControl.getElementsByTagName('i')[0].classList.add('fa-spin');
+        //$("#" + loadingID).addClass("fa-spinner fa-spin");
+    }
+
+    function loadingStop(tagControl)
+    {
+        tagControl.getElementsByTagName('i')[0].classList.remove('fa-spin');
+        tagControl.getElementsByTagName('i')[0].classList.remove('fa-spinner');
+        //$("#" + loadingID).removeClass("fa-spinner fa-spin");
+    }
+</script>
+
+<div style="text-align:center" id="create">
+    @{ Html.RenderAction("CreatePartial"); }
+</div>
+
+<br />
+<br />
+
+<div style="text-align:center" id="view">
+    @{ Html.RenderAction("ViewItems"); }
+</div>

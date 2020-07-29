@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShopBridgeDBModelStoreContainer" CdmEntityContainer="ShopBridgeDBContext">
+    <EntitySetMapping Name="itemTbls">
+      <EntityTypeMapping TypeName="ShopBridgeDBModel.itemTbl">
+        <MappingFragment StoreEntitySet="itemTbl">
+          <ScalarProperty Name="itemID" ColumnName="itemID" />
+          <ScalarProperty Name="itemName" ColumnName="itemName" />
+          <ScalarProperty Name="itemDescription" ColumnName="itemDescription" />
+          <ScalarProperty Name="itemPrice" ColumnName="itemPrice" />
+          <ScalarProperty Name="itemImage" ColumnName="itemImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

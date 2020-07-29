@@ -1,0 +1,89 @@
+﻿
+@model ShopBridge.Models.itemTbl
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@using (Ajax.BeginForm("Create", "Item",
+                new AjaxOptions
+                {
+                    HttpMethod = "Post",
+                    UpdateTargetId = "create",
+                    InsertionMode = InsertionMode.Replace,
+                    OnSuccess = "afterSuccess(data)",
+                    OnFailure = "afterFailure()",
+                    OnBegin = "loading(this)",
+                    OnComplete = "loadingStop(this)"
+                }, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" style="text-align:center">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <table style="margin: 0 auto;">
+            <tr>
+                <td>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.itemName, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.itemName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.itemName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.itemDescription, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.itemDescription, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.itemDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.itemPrice, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.itemPrice, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.itemPrice, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.itemImage, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-8">
+                            <input type="file" name="ItemImage" id="ItemImage" />
+                            @Html.ValidationMessageFor(model => model.itemImage, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="form-group">
+                        <div class="col-md-offset-5 col-md-2">
+                            <button type="submit" value="Create" class="btn btn-default">
+                                <i class="fa"></i> Add Item
+                            </button>
+                            @*<input type="submit" value="Create" class="btn btn-default" />*@
+                        </div>
+                        <div class="col-md-5"></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+
+

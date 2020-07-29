@@ -1,0 +1,46 @@
+﻿@model ShopBridge.Models.itemTbl
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div style="text-align:center">
+    <hr />
+    <table class="table">
+        <tr>
+            <td rowspan="3">
+                @{
+                    string base64string = Convert.ToBase64String(Model.itemImage);
+                }
+                <img style="width:150px;height:150px" src="@String.Format("data:image/png;base64,{0}", base64string)" />
+            </td>
+            <td>
+                <b>@Html.DisplayNameFor(model => model.itemName)</b>
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.itemName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>@Html.DisplayNameFor(model => model.itemDescription)</b>
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.itemDescription)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>@Html.DisplayNameFor(model => model.itemPrice)</b>
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.itemPrice)
+            </td>
+        </tr>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Back to Home page", "Index")
+</p>

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ShopBridge.Models.itemTbl>
+
+
+<table class="table" id="itemGrid">
+    <tr>
+        <th hidden="hidden">
+            @Html.DisplayNameFor(model => model.itemID)
+        </th>
+        <th style="text-align:center">
+            @Html.DisplayNameFor(model => model.itemName)
+        </th>
+        <th style="text-align:center">
+            @Html.DisplayNameFor(model => model.itemDescription)
+        </th>
+        <th style="text-align:center">
+            @Html.DisplayNameFor(model => model.itemPrice)
+        </th>
+        <th style="text-align:center">
+            @Html.DisplayNameFor(model => model.itemImage)
+        </th>
+        <th style="text-align:center">
+            @*<b>Delete</b>*@
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        Html.RenderPartial("_CreateResponse", item);
+    }
+</table>
+
