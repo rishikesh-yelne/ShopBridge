@@ -3,6 +3,7 @@
 Hi! This is an Inventory Management Project created to add items to the inventory, view all inventory items, delete a particular item and also view details of a particular item. The item details include Name, Description, Price and Image. 
 
 **Technologies Used :** ASP.NET MVC, Entity Framework, jQuery, JavaScript, Ajax, MsSQL, Unit Test, AxoCover, Rhino Mocks
+
 **Author :** Rishikesh Yelne
 
 ## About the Application
