@@ -45,40 +45,71 @@ Please check the 'CodeCoverage' folder for Report Screenshot as well as Detailed
 	
 ## Tracking
 1. **Backend functionality**
+
 **Time**  : 2 hour
+
 **Tasks** :
+
 a. Create Database, Table.
+
 b. Create Model (using Entity Framework - From Database).
+
 c. Controller methods.
 
+
 2. **Frontend functionality**
+
 **Time**  : 2 hours
+
 **Tasks** : 
+
 a. Create 2 Main Views and required Partial Views.
+
 b. JavaScript functions with jQuery and AJAX calls.
 
+
 3. **Frontend Presentational Aspects**
+
 **Time**  : 3 hours
+
 **Tasks** : 
+
 a. Adding sweetalert dialogs, font-awesome spinners on buttons, etc to improve UX
+
 b. Center Alignment
+
 c. Using bootstrap classes
 
-4. Backend-Frontend Integration
+
+4. **Backend-Frontend Integration**
+
 **Time**  : 2 hours	
+
 **Tasks** : 
+
 a. Handling all Ajax calls from View in Controller
+
 	
 5. **Unit Testing**
+
 **Time**  : 4 hours
+
 **Tasks** : 
+
 a. Testing each component during development : module-wise
+
 b. Testing entire project with boundary cases
+
 	
 6. **Deployment and Documentation**
+
 **Time**  : 1 hour
+
 **Tasks** : 
+
 a. Deploying on Git Repo
+
 b. Documentation
+
 
 **Total Time : 14 hours**
