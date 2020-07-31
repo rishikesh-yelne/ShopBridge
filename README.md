@@ -39,6 +39,9 @@ The Home page contains two components:
 	For Code Coverage Report, AxoCover is required as an Extension. Add the Extension using the 'Extension and Updates' feature in Visual Studio. 
 	> **Please Note** : Visual Studio needs to be restarted after adding the extension.
 	> **If the Report is not generated** : Please register 'OpenCover.Profiler.dll' present in the following path "C:\Users\\(UserName)\AppData\Local\Microsoft\VisualStudio\\(Version)\Extensions\\~\OpenCover\\(x86/x64)"
+3. **IIS**:
+	Please open the Web Settings in the Properties of the ShopBridge ASP.NET MVC Project and in the Servers section, select 'Local IIS' instead of 'IIS Express'.
+	Kindly click on 'Create Virtual Directory' and Save the changes so that the Web Application can be accessed using the following URL : http://localhost/ShopBridge
 
 ## Code Coverage Report
 Please check the 'CodeCoverage' folder for Report Screenshot as well as Detailed Report.
